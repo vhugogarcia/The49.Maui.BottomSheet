@@ -320,6 +320,7 @@ public partial class MainPage : ContentPage
             Command = new Command(async () =>
             {
                 //page.DismissAsync(false);
+                await DisplayAlert("Hello", "World", "OK");
                 await Shell.Current.GoToAsync("ModalPage");
             }),
         };

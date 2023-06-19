@@ -12,9 +12,4 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
-    <FlyoutItem>
-        <ShellContent ContentTemplate="{DataTemplate local:ModalPage}" Route="ModalPage" />
-    </FlyoutItem>
-
-
 </Shell>

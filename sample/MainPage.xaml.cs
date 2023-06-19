@@ -302,7 +302,7 @@ public partial class MainPage : ContentPage
         sheet.ShowAsync(Window);
     }
 
-    void OpenModalPage()
+    async void OpenModalPage()
     {
         var page = new SimplePage();
         page.Detents = new DetentsCollection()
@@ -317,16 +317,16 @@ public partial class MainPage : ContentPage
 
         var g = new TapGestureRecognizer
         {
-            Command = new Command(() =>
+            Command = new Command(async () =>
             {
-                page.DismissAsync(false);
-                Shell.Current.GoToAsync("//ModalPage");
+                //page.DismissAsync(false);
+                await Shell.Current.GoToAsync("ModalPage");
             }),
         };
 
         b.GestureRecognizers.Add(g);
         page.SetExtraContent(b);
-        page.ShowAsync(Window);
+        await page.ShowAsync(Window);
     }
 
 #if ANDROID
@@ -378,9 +378,9 @@ public partial class MainPage : ContentPage
         item.Command.Execute(null);
     }
 
-    void Button_Clicked(object sender, EventArgs e)
+    async void Button_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("//ModalPage");
+        await Shell.Current.GoToAsync("ModalPage");
     }
 }
 

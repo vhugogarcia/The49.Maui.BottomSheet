@@ -9,7 +9,7 @@ public partial class ModalPage : ContentPage
 		InitializeComponent();
 	}
 
-    void Button_Clicked(object sender, EventArgs e)
+    async void Button_Clicked(object sender, EventArgs e)
     {
 		var s = new SimplePage();
 
@@ -19,6 +19,11 @@ public partial class ModalPage : ContentPage
 			new ContentDetent(),
 		};
 
-		s.ShowAsync(Window);
+		await s.ShowAsync(Window);
+    }
+
+    async void ButtonBack_Clicked(object sender, EventArgs e)
+    {
+		await Shell.Current.GoToAsync("..");
     }
 }
